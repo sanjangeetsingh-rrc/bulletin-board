@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.sanjangeet.bulletinboard.screens.LoginScreen
+import com.sanjangeet.bulletinboard.navigation.Navigation
 import com.sanjangeet.bulletinboard.ui.theme.BulletinBoardTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BulletinBoardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LoginScreen(
+                    Navigation(
                         modifier = Modifier
                             .padding(innerPadding)
                     )

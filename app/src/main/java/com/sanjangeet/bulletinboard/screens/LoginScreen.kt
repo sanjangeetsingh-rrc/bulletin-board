@@ -21,9 +21,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.sanjangeet.bulletinboard.navigation.Destination
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    onNavigate : (Destination) -> Unit
+) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -60,6 +64,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 ),
                 onClick = {
                     /* TODO */
+                    onNavigate(Destination.Main)
                 }
             ) { Text("Login") }
             Button(
@@ -71,6 +76,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 ),
                 onClick = {
                     /* TODO */
+                    onNavigate(Destination.Signup)
                 }
             ) { Text("Signup") }
         }

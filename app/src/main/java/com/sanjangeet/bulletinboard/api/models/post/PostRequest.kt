@@ -1,4 +1,4 @@
-package com.sanjangeet.bulletinboard.api.models
+package com.sanjangeet.bulletinboard.api.models.post
 
 data class PostRequest(
     val title: String,

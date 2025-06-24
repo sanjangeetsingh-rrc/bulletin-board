@@ -11,7 +11,7 @@ import com.sanjangeet.bulletinboard.api.services.PostService
 import com.sanjangeet.bulletinboard.api.services.GroupMembershipService
 
 object Client {
-    private const val BASE_URL = "http://192.168.56.1:8000/"
+    private const val BASE_URL = "http://10.0.2.2:8000/"
 
     private val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()

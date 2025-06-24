@@ -12,10 +12,10 @@ import okhttp3.MultipartBody
 import retrofit2.http.PATCH
 import retrofit2.http.Part
 import okhttp3.RequestBody
-import com.sanjangeet.bulletinboard.api.models.BanMemberRequest
-import com.sanjangeet.bulletinboard.api.models.CreateGroupRequest
-import com.sanjangeet.bulletinboard.api.models.GroupResponse
-import com.sanjangeet.bulletinboard.api.models.UserResponse
+import com.sanjangeet.bulletinboard.api.models.group.BanMemberRequest
+import com.sanjangeet.bulletinboard.api.models.group.CreateGroupRequest
+import com.sanjangeet.bulletinboard.api.models.group.GroupResponse
+import com.sanjangeet.bulletinboard.api.models.user.UserResponse
 
 interface GroupService {
     @GET("groups/")

@@ -1,4 +1,4 @@
-package com.sanjangeet.bulletinboard.api.models
+package com.sanjangeet.bulletinboard.api.models.user
 
 data class PasswordResetRequest (
     val email: String,

@@ -3,7 +3,7 @@ package com.sanjangeet.bulletinboard.api.services
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import com.sanjangeet.bulletinboard.api.models.GroupMembershipRequest
+import com.sanjangeet.bulletinboard.api.models.membership.GroupMembershipRequest
 
 interface GroupMembershipService {
 

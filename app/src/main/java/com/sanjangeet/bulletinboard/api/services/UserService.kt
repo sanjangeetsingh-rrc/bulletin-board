@@ -4,10 +4,10 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.Response
-import com.sanjangeet.bulletinboard.api.models.UserResponse
-import com.sanjangeet.bulletinboard.api.models.UserUpdateRequest
-import com.sanjangeet.bulletinboard.api.models.PasswordResetRequest
-import com.sanjangeet.bulletinboard.api.models.PasswordChangeRequest
+import com.sanjangeet.bulletinboard.api.models.user.UserResponse
+import com.sanjangeet.bulletinboard.api.models.user.UserUpdateRequest
+import com.sanjangeet.bulletinboard.api.models.user.PasswordResetRequest
+import com.sanjangeet.bulletinboard.api.models.user.PasswordChangeRequest
 
 interface UserService {
 

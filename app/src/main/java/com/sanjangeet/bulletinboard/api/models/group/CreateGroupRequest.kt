@@ -1,4 +1,4 @@
-package com.sanjangeet.bulletinboard.api.models
+package com.sanjangeet.bulletinboard.api.models.group
 
 data class CreateGroupRequest(
     val name: String,

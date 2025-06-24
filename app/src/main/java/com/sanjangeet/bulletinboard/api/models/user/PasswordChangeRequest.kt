@@ -1,4 +1,4 @@
-package com.sanjangeet.bulletinboard.api.models
+package com.sanjangeet.bulletinboard.api.models.user
 
 data class PasswordChangeRequest (
     val old_password: String,

@@ -7,8 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.sanjangeet.bulletinboard.navigation.Navigation
 import com.sanjangeet.bulletinboard.ui.theme.BulletinBoardTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BulletinBoardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Navigation(
+                    Root(
                         modifier = Modifier
                             .padding(innerPadding)
                     )
@@ -26,4 +26,8 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
+
+@Composable
+fun Root(modifier: Modifier = Modifier) {
 }

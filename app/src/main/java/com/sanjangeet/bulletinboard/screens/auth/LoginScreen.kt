@@ -37,6 +37,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.sanjangeet.bulletinboard.AppState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -125,6 +126,7 @@ fun LoginScreen(modifier: Modifier = Modifier, appState: AppState) {
                         } catch (e: Exception) {
                             if (e.message.toString() == "HTTP 400 Bad Request") {
                                 appState.snackbarHostState.showSnackbar("Invalid Credentials")
+                                password = ""
                             } else {
                                 appState.snackbarHostState.showSnackbar("Something went wrong")
                             }
@@ -137,7 +139,7 @@ fun LoginScreen(modifier: Modifier = Modifier, appState: AppState) {
                     containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.95f)
                 )
             ) {
-                Text("Login")
+                Text("Login", fontSize = 16.sp)
             }
             Spacer(Modifier.height(8.dp))
             Button(
@@ -149,11 +151,11 @@ fun LoginScreen(modifier: Modifier = Modifier, appState: AppState) {
                     contentColor = Color.Black
                 )
             ) {
-                Text("Sign Up")
+                Text("Sign Up", fontSize = 16.sp)
             }
             Spacer(Modifier.height(4.dp))
             TextButton(onClick = { appState.currentDestination = Destination.ResetPassword }) {
-                Text("Forgot Password?")
+                Text("Forgot Password?", fontSize = 15.sp)
             }
         }
     }

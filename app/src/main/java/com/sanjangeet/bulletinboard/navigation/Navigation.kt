@@ -1,6 +1,8 @@
 package com.sanjangeet.bulletinboard.navigation
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresExtension
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
@@ -20,6 +22,7 @@ import com.sanjangeet.bulletinboard.screens.auth.LoginScreen
 import com.sanjangeet.bulletinboard.screens.auth.SignupScreen
 import com.sanjangeet.bulletinboard.screens.auth.ResetPasswordScreen
 
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Navigation(modifier: Modifier = Modifier) {
@@ -30,7 +33,7 @@ fun Navigation(modifier: Modifier = Modifier) {
             SnackbarHost(appState.snackbarHostState) { data ->
                 Snackbar(
                     modifier = Modifier.padding(horizontal = 16.dp),
-                    containerColor = Color(0xFFD00020),
+                    containerColor = if (appState.isSnackbarMessageError) Color(0xFFD00020) else Color(0xFF2E7D32),
                     contentColor = Color.White,
                     action = {
                         TextButton(onClick = { data.dismiss() }) {
@@ -44,8 +47,10 @@ fun Navigation(modifier: Modifier = Modifier) {
         }
     ) {
         when (appState.currentDestination) {
-            Destination.Login -> LoginScreen(modifier, appState)
             Destination.Main -> MainScreen(modifier, appState)
+
+            // Auth
+            Destination.Login -> LoginScreen(modifier, appState)
             Destination.Signup -> SignupScreen(modifier, appState)
             Destination.ResetPassword -> ResetPasswordScreen(modifier, appState)
         }

@@ -10,4 +10,5 @@ class AppState {
     var token by mutableStateOf<String>("")
     var currentDestination by mutableStateOf<Destination>(Destination.Login)
     var snackbarHostState by mutableStateOf<SnackbarHostState>(SnackbarHostState())
+    var isSnackbarMessageError by mutableStateOf(true)
 }

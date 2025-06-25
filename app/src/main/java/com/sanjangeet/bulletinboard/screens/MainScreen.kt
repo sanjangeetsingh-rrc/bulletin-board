@@ -35,6 +35,7 @@ fun MainScreen(modifier: Modifier = Modifier, appState: AppState) {
         if (refreshToken == null) {
             appState.currentDestination = Destination.Login
         } else {
+            if (appState.token == "") {
             try {
                 var response = Client.authService.loginRenew(LoginRenewRequest(refreshToken))
                 appState.token = response.access
@@ -42,6 +43,7 @@ fun MainScreen(modifier: Modifier = Modifier, appState: AppState) {
                 appDatabase.tokenDao().delete()
                 appState.currentDestination = Destination.Login
             }
+                }
         }
     }
 

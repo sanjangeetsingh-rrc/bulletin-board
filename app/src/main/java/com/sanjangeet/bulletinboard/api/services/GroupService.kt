@@ -16,16 +16,17 @@ import com.sanjangeet.bulletinboard.api.models.group.BanMemberRequest
 import com.sanjangeet.bulletinboard.api.models.group.CreateGroupRequest
 import com.sanjangeet.bulletinboard.api.models.group.GroupResponse
 import com.sanjangeet.bulletinboard.api.models.user.UserResponse
+import retrofit2.http.Header
 
 interface GroupService {
     @GET("groups/")
-    suspend fun getAllGroups(): List<GroupResponse>
+    suspend fun getAllGroups(@Header("Authorization") authHeader: String): List<GroupResponse>
 
     @GET("groups/my/")
-    suspend fun getMyGroups(): List<GroupResponse>
+    suspend fun getMyGroups(@Header("Authorization") authHeader: String): List<GroupResponse>
 
     @GET("groups/joined/")
-    suspend fun getJoinedGroups(): List<GroupResponse>
+    suspend fun getJoinedGroups(@Header("Authorization") authHeader: String): List<GroupResponse>
 
     @Multipart
     @POST("groups/")
@@ -34,21 +35,22 @@ interface GroupService {
         @Part("description") description: RequestBody?,
         @Part icon: MultipartBody.Part?,
         @Part("whitelist") whitelist: RequestBody?,
-        @Part("blacklist") blacklist: RequestBody?
+        @Part("blacklist") blacklist: RequestBody?,
+        @Header("Authorization") authHeader: String
     ): GroupResponse
 
     @PATCH("groups/{id}/")
-    suspend fun updateGroup(@Path("id") id: Int, @Body request: CreateGroupRequest): GroupResponse
+    suspend fun updateGroup(@Path("id") id: Int, @Body request: CreateGroupRequest, @Header("Authorization") authHeader: String): GroupResponse
 
     @DELETE("groups/{id}/")
-    suspend fun deleteGroup(@Path("id") id: Int): Response<Unit>
+    suspend fun deleteGroup(@Path("id") id: Int, @Header("Authorization") authHeader: String): Response<Unit>
 
     @GET("groups/list_members/")
-    suspend fun listMembers(@Query("group") groupId: Int): List<UserResponse>
+    suspend fun listMembers(@Query("group") groupId: Int, @Header("Authorization") authHeader: String): List<UserResponse>
 
     @POST("groups/ban_member/")
-    suspend fun banMember(@Body request: BanMemberRequest): Response<Unit>
+    suspend fun banMember(@Body request: BanMemberRequest, @Header("Authorization") authHeader: String): Response<Unit>
 
     @GET("groups/")
-    suspend fun searchGroups(@Query("search") query: String): List<GroupResponse>
+    suspend fun searchGroups(@Query("search") query: String, @Header("Authorization") authHeader: String): List<GroupResponse>
 }

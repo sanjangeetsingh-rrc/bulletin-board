@@ -36,14 +36,14 @@ fun MainScreen(modifier: Modifier = Modifier, appState: AppState) {
             appState.currentDestination = Destination.Login
         } else {
             if (appState.token == "") {
-            try {
-                var response = Client.authService.loginRenew(LoginRenewRequest(refreshToken))
-                appState.token = response.access
-            } catch (e: Exception) {
-                appDatabase.tokenDao().delete()
-                appState.currentDestination = Destination.Login
-            }
+                try {
+                    var response = Client.authService.loginRenew(LoginRenewRequest(refreshToken))
+                    appState.token = response.access
+                } catch (e: Exception) {
+                    appDatabase.tokenDao().delete()
+                    appState.currentDestination = Destination.Login
                 }
+            }
         }
     }
 
